@@ -9,9 +9,7 @@ export class MovieService{
   constructor(){
     console.log('movie service is created');
 
-    // this.mServiceSubject = 
+    this.mServiceSubject = new Subject<any>();
+    this.seectedMovieChanged = this.mServiceSubject.asObservable();
   }
-
-
-
 }
