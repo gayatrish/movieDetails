@@ -1,0 +1,46 @@
+*{
+  margin:0;
+  padding:0;
+}
+/* horizontal navigation bar */
+#h_bar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+#h_bar li {
+  float: left; /* After Completing one List tag it automatcally placed another list tag with out any line breaks */
+}
+#h_bar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#h_bar li a:hover {
+  background-color: #111;
+}
+/* Vertical navigation bar */
+#v_bar li{
+  float:none;
+}
+#v_bar{
+  background-color: #660033;
+  height:100vh;
+  width:15%;
+}
+#v_bar li a{
+  font-size:24px;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+#v_bar li a:hover{
+  background-color:#fff;
+  color:#000;
+}
