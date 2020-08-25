@@ -1,33 +1,50 @@
 import { Component, OnInit } from '@angular/core';
-import { Movie } from '../model/movie.model';
-import { MovieService } from '../services/movie.service';
-
+import {ApiMovieFetchService} from './api-movie-fetch.service';
+import{Versions} from '../shared/user.model'
 @Component({
   selector: 'app-all-movies',
   templateUrl: './all-movies.component.html',
   styleUrls: ['./all-movies.component.css']
 })
 export class AllMoviesComponent implements OnInit {
-  list:Array<Movie>;
-  selectedMovie:Movie;
-  constructor(private mService:MovieService) { }
+  movie_type;
+  names;
+  overview;
+  title;
+  popularity;
+  vote_count;
+  vender;
+  idAttr;
+  constructor(private apiService: ApiMovieFetchService) { }
 
-  ngOnInit() {
-    this.list = this.mService
+  ngOnInit(): void {
+    this.apiService.getNews().subscribe((data)=>{
+      console.log(data);
+      this.movie_type = data['genres'];
+    });
   }
-
+  onGoToPage2(event){
+    var target = event.target || event.srcElement || event.currentTarget;
+    var idAttr= event.currentTarget.name;
+    console.log(idAttr);
+    this.apiService.getNews().subscribe((data)=>{
+      console.log(data);
+      this.movie_type = data['genres'];
+    });
+    this.apiService.getMoviesbyID(idAttr).subscribe((data)=>{
+      console.log(data);
+      this.names = data['id'];
+      this.vender=data['results'];
+      for(var i=0; i < this.vender.length;i++)
+      {
+        console.log(data['results']); 
+        
+      }
+      // console.log(data['page']);
+      // console.log(data['results']);
+      // var json = JSON.parse(data['results']);
+      // console.log(json);
+      this.idAttr=null; 
+    }); 
+   }
 }
-constructor(private aService: AuthorService) { }
-
-    ngOnInit() {
-        this.list = this.aService.Authors;
-    }
-
-    selectAuthor(a: Author) {
-        this.aService.SelectedAuthor = a;
-        this.selectedAuthor = this.aService.SelectedAuthor;
-    }
-
-    isSelected(a: Author) {
-        return this.selectedAuthor === a;
-    }

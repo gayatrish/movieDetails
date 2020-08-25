@@ -1,0 +1,44 @@
+.m-LR{
+  margin-left:0 ;
+  margin-right: 0;
+}
+.display-inline{
+  display: inline;
+}
+table
+,th,td{
+  border:1px solid black
+}
+th,td{
+  padding:5px 10px !important;
+}
+th:nth-child(1),td:nth-child(1)
+{
+  width:8.5%;
+}
+th:nth-child(2),td:nth-child(2)
+{
+  width:10.5%;
+}
+th:nth-child(3),td:nth-child(3)
+{
+  width: 63%;
+}
+.vertical-nav-fixed{
+  position: fixed;
+  height: 100px;
+  width: 200px;
+  top:70px;
+}
+.table-div{
+padding: 15px;
+padding-right: 30px;
+}
+.table-position{
+  border:black;
+  width: 97.5%;
+  display: block;
+}
+thead{width: 100%;
+display: inline-block;
+}
